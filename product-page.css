@@ -921,6 +921,8 @@
     min-height: 100vh;
 }
 
+
+
 .product-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -930,6 +932,10 @@
     padding: 0 64px 0 64px;
 }
 
+
+
+
+
 .product-image-section {
     display: flex;
     justify-content: center;
@@ -937,6 +943,7 @@
     max-width: 800px;
     margin: 0 auto;
     padding-top: 40px;
+    position: relative;
 }
 
 .product-page-image {
@@ -945,6 +952,23 @@
     height: auto;
     border-radius: 0;
     transform: scale(1.5);
+    filter: blur(3px);
+}
+
+.product-image-section::after {
+    content: "COMING SOON";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 24px;
+    font-family: 'Modeco Trial', sans-serif;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    z-index: 10;
+    white-space: nowrap;
 }
 
 .product-details-section {
@@ -1170,7 +1194,7 @@
 }
 
 /* Mobile responsive for navbar */
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
     .navbar {
         padding: 0 16px;
     }
@@ -1214,6 +1238,8 @@
         padding: 40px 16px;
     }
     
+
+    
     .product-details-section {
         order: 1;
         gap: 24px;
@@ -1221,6 +1247,20 @@
     
     .product-image-section {
         order: 2;
+        display: flex !important; /* Show the image section */
+        justify-content: center;
+        align-items: flex-start;
+        max-width: 100%;
+        margin: 0 auto;
+        padding-top: 20px;
+    }
+    
+    .product-page-image {
+        max-width: 70%;
+        width: auto;
+        height: 300px;
+        border-radius: 0;
+        object-fit: contain;
     }
     
     .product-page-title {
@@ -1253,4 +1293,44 @@
         font-size: 24px;
         text-align: center;
     }
+    
+
+    
+
+}
+
+/* Tablet responsive for product page */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .product-container {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        padding: 40px 32px;
+    }
+    
+
+    
+    .product-details-section {
+        order: 1;
+        gap: 24px;
+    }
+    
+    .product-image-section {
+        order: 2;
+        display: flex !important; /* Show the image section */
+        justify-content: center;
+        align-items: flex-start;
+        max-width: 100%;
+        margin: 0 auto;
+        padding-top: 20px;
+    }
+    
+    .product-page-image {
+        max-width: 100%;
+        width: 100%;
+        height: auto;
+        border-radius: 0;
+        transform: scale(1.3); /* Medium scale for tablet */
+    }
+    
+
 }

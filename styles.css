@@ -5,6 +5,40 @@
     box-sizing: border-box;
 }
 
+/* iOS Safari specific fixes for backdrop-filter */
+@supports (-webkit-touch-callout: none) {
+    .navbar,
+    .cart-overlay,
+    .mobile-menu-overlay,
+    .checkout-overlay,
+    .dropdown-menu {
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+        -webkit-perspective: 1000px;
+        perspective: 1000px;
+        will-change: transform;
+    }
+}
+
+/* Additional iOS Safari optimizations */
+@supports (-webkit-touch-callout: none) {
+    body {
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    /* Force hardware acceleration for backdrop-filter elements */
+    .navbar,
+    .cart-overlay,
+    .mobile-menu-overlay,
+    .checkout-overlay,
+    .dropdown-menu {
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+    }
+}
+
 body {
     font-family: 'Modeco Trial', 'Inter', sans-serif;
     background: #F5F5F3;
@@ -42,12 +76,21 @@ body {
     height: 68px;
     background: rgba(255, 255, 255, 0.10);
     backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px) saturate(180%);
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 0 64px;
     z-index: 1000;
     transition: background 0.3s ease;
+}
+
+/* Fallback for browsers that don't support backdrop-filter */
+@supports not (backdrop-filter: blur(8px)) {
+    .navbar {
+        background: rgba(255, 255, 255, 0.85);
+    }
 }
 
 .navbar.dark {
@@ -82,6 +125,7 @@ body {
     left: 0;
     background: rgba(51, 43, 34, 0.6);
     backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
     padding: 12px 12px;
     display: none;
     flex-direction: column;
@@ -89,6 +133,13 @@ body {
     border-radius: 4px;
     min-width: 80px;
     margin-top: 8px;
+}
+
+/* Fallback for browsers that don't support backdrop-filter */
+@supports not (backdrop-filter: blur(8px)) {
+    .dropdown-menu {
+        background: rgba(51, 43, 34, 0.9);
+    }
 }
 
 .dropdown-item {
@@ -383,7 +434,7 @@ body {
 
 /* Top Sellers Section */
 .top-sellers {
-    padding: 64px;
+    padding: 40px 64px 64px 64px;
     background: #F5F5F3;
 }
 
@@ -426,6 +477,23 @@ body {
     max-height: 150%;
     object-fit: contain;
     transition: transform 0.3s ease;
+    filter: blur(3px);
+}
+
+.product-image-container::after {
+    content: "COMING SOON";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 18px;
+    font-family: 'Modeco Trial', sans-serif;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    z-index: 10;
+    white-space: nowrap;
 }
 
 .product-card:hover .product-image {
@@ -464,8 +532,45 @@ body {
     background: rgba(51, 43, 34, 0.6);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
     z-index: 1001;
     transition: right 0.3s ease-in-out;
+}
+
+/* Fallback for browsers that don't support backdrop-filter */
+@supports not (backdrop-filter: blur(16px)) {
+    .cart-overlay {
+        background: rgba(51, 43, 34, 0.95);
+    }
+}
+
+/* Mobile and tablet - more opaque backgrounds */
+@media (max-width: 1200px) {
+    .cart-overlay {
+        background: rgba(51, 43, 34, 0.9) !important;
+    }
+    
+    .mobile-menu-overlay {
+        background: rgba(51, 43, 34, 0.9) !important;
+    }
+    
+    .checkout-overlay {
+        background: rgba(51, 43, 34, 0.9) !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .cart-overlay {
+        background: rgba(51, 43, 34, 0.95) !important;
+    }
+    
+    .mobile-menu-overlay {
+        background: rgba(51, 43, 34, 0.95) !important;
+    }
+    
+    .checkout-overlay {
+        background: rgba(51, 43, 34, 0.95) !important;
+    }
 }
 
 .cart-overlay.active {
@@ -805,7 +910,7 @@ body {
     }
     
     .cart-content {
-        padding: 80px 24px 24px;
+        padding: 80px 24px 120px 24px;
     }
 }
 
@@ -897,7 +1002,7 @@ body {
     }
     
     .top-sellers {
-        padding: 32px;
+        padding: 50px 32px 32px 32px;
     }
 }
 
@@ -919,12 +1024,12 @@ body {
     }
     
     .top-sellers {
-        padding: 16px;
+        padding: 40px 16px 16px 16px;
     }
     
     .section-title {
         font-size: 24px;
-        text-align: center;
+        text-align: left;
     }
     
     .hero, .bottom-banner {
@@ -983,9 +1088,25 @@ body {
     background: rgba(51, 43, 34, 0.6);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
     z-index: 1001;
     transition: right 0.3s ease-in-out;
 }
+
+/* Force mobile menu background on mobile and tablet */
+@media (max-width: 1200px) {
+    .mobile-menu-overlay {
+        background: rgba(51, 43, 34, 0.9) !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .mobile-menu-overlay {
+        background: rgba(51, 43, 34, 0.95) !important;
+    }
+}
+
+
 
 .mobile-menu-overlay.active {
     right: 0;
@@ -1070,7 +1191,7 @@ body {
     top: 100%;
     left: 0;
     right: 0;
-    background: rgba(51, 43, 34, 0.8);
+    background: rgba(51, 43, 34, 1);
     border: 1px solid rgba(255, 255, 255, 0.3);
     border-radius: 4px;
     margin-top: 4px;
@@ -1163,7 +1284,7 @@ body {
     transform: rotate(-45deg) translate(7px, -6px);
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
     .nav-left, .nav-right {
         display: none;
     }
@@ -1197,12 +1318,15 @@ body {
     background: rgba(51, 43, 34, 0.6);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
     z-index: 1001;
     transform: translateX(100%);
     transition: transform 0.3s ease;
     display: flex;
     flex-direction: column;
 }
+
+
 
 .checkout-overlay.active {
     transform: translateX(0);

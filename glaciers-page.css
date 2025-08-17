@@ -52,15 +52,13 @@
     letter-spacing: 2px;
 }
 
-.all-models-section {
-    padding: 0 64px 64px 64px;
-}
 
-.product-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 40px;
-    margin-top: 28px;
+
+/* Tablet responsive for glaciers page */
+@media (max-width: 1200px) {
+    .glaciers-header {
+        padding: 64px 32px 32px 32px;
+    }
 }
 
 /* Mobile responsive for glaciers page */
@@ -71,14 +69,5 @@
     
     .glaciers-title {
         font-size: 32px;
-    }
-    
-    .all-models-section {
-        padding: 0 16px 40px 16px;
-    }
-    
-    .product-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 16px;
     }
 }
