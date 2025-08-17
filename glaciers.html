@@ -166,41 +166,41 @@
         
         <!-- All Models Section -->
         <section class="all-models-section">
-            <h2 class="section-title">TOP SELLERS</h2>
+            <h2 class="section-title">POPULAR COMBINATIONS</h2>
             <div class="product-grid">
-                <div class="product-card" onclick="window.location.href='engelberg-brown.html'">
+                <div class="product-card" onclick="window.location.href='product-page.html?config=stainless'">
                     <div class="product-image-container">
-                        <img src="EngelbergBrown.png" alt="Engelberg Brown" class="product-image">
+                        <img src="Rostfri.png" alt="Zermatt Stainless" class="product-image">
                     </div>
                     <div class="product-info">
-                        <h3 class="product-name">ENGELBERG BROWN</h3>
+                        <h3 class="product-name">ZERMATT STAINLESS</h3>
                         <p class="product-price" data-price="150">EUR -</p>
                     </div>
                 </div>
-                <div class="product-card" onclick="window.location.href='chamonix-blue.html'">
+                <div class="product-card" onclick="window.location.href='product-page.html?config=blue'">
                     <div class="product-image-container">
-                        <img src="ChamonixBlue.png" alt="Chamonix Blue" class="product-image">
+                        <img src="Blå.png" alt="Chamonix Blue" class="product-image">
                     </div>
                     <div class="product-info">
                         <h3 class="product-name">CHAMONIX BLUE</h3>
                         <p class="product-price" data-price="150">EUR -</p>
                     </div>
                 </div>
-                <div class="product-card" onclick="window.location.href='grindelwald-yellow.html'">
+                <div class="product-card" onclick="window.location.href='product-page.html?config=black'">
                     <div class="product-image-container">
-                        <img src="GrindelwaldYellow.png" alt="Grindelwald Yellow" class="product-image">
+                        <img src="Svart.png" alt="Alpbach Black" class="product-image">
                     </div>
                     <div class="product-info">
-                        <h3 class="product-name">GRINDELWALD YELLOW</h3>
+                        <h3 class="product-name">ALPBACH BLACK</h3>
                         <p class="product-price" data-price="150">EUR -</p>
                     </div>
                 </div>
-                <div class="product-card" onclick="window.location.href='verbier-green.html'">
+                <div class="product-card" onclick="window.location.href='product-page.html?config=orange'">
                     <div class="product-image-container">
-                        <img src="VerbierGreen.png" alt="Verbier Green" class="product-image">
+                        <img src="Orangea.png" alt="Verbier Red" class="product-image">
                     </div>
                     <div class="product-info">
-                        <h3 class="product-name">VERBIER GREEN</h3>
+                        <h3 class="product-name">VERBIER RED</h3>
                         <p class="product-price" data-price="150">EUR -</p>
                     </div>
                 </div>
@@ -479,15 +479,12 @@ document.addEventListener('DOMContentLoaded', function () {
         // Update product prices
         const productPrices = document.querySelectorAll('.product-price');
         productPrices.forEach(priceElement => {
-            const basePrice = priceElement.dataset.price;
-            const convertedPrice = convertPrice(basePrice, currency);
-            priceElement.textContent = `${currency} ${convertedPrice}`;
+            priceElement.textContent = `${currency} -`;
         });
         
         // Update all cart items to new currency
         cartItems.forEach(item => {
-            const convertedPrice = convertPrice(item.basePrice, currency);
-            item.price = `${currency} ${convertedPrice}`;
+            item.price = `${currency} -`;
         });
         
         // Update cart display if cart is open

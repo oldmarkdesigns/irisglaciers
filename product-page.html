@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chamonix Blue - IRIS</title>
+    <title>Product Page - IRIS</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="product-specific.css">
+    <link rel="stylesheet" href="product-specific.css?v=2">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;400&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -158,64 +158,121 @@
     <div class="product-page">
         <div class="product-container">
             <div class="product-image-section">
-                <img src="ChamonixBlue.png" alt="Chamonix Blue" class="product-page-image">
+                <img src="Rostfri.png" alt="Engelberg Brown" class="product-page-image">
             </div>
             <div class="product-details-section">
-                <button class="back-to-home-btn" onclick="window.location.href='index.html'">← Back to Home</button>
+                <button class="back-to-home-btn" onclick="window.location.href='index.html'">
+                    <span class="back-arrow">←</span>
+                    <span class="back-text">BACK TO HOME</span>
+                </button>
                 <div class="product-info">
                     <div class="product-title-price">
-                        <h1 class="product-page-title">CHAMONIX BLUE</h1>
+                        <h1 class="product-page-title">ZERMATT STAINLESS</h1>
                         <p class="product-page-price" data-price="150">EUR -</p>
                     </div>
+                    
                     <p class="product-description">
-                        Experience the serenity of our Chamonix Blue collection. 
-                        Inspired by the crystal-clear alpine lakes and pristine glaciers, 
-                        this piece captures the essence of mountain tranquility.
+                        Experience the warmth and elegance of our Engelberg Brown collection. 
+                        Crafted with premium materials and designed for comfort.
                     </p>
-                    <button class="product-add-to-cart-btn" data-product="Chamonix Blue">ADD TO CART</button>
+                    
+                    <!-- Color Configuration -->
+                    <div class="color-configurator">
+                        <div class="config-row">
+                            <div class="config-section">
+                                <h3 class="config-title">Frame Color</h3>
+                                <div class="color-options">
+                                    <button class="color-option active" data-color="stainless" data-type="frame">
+                                        <div class="color-circle" style="background-color: #B8B8B8;"></div>
+                                    </button>
+                                    <button class="color-option" data-color="black" data-type="frame">
+                                        <div class="color-circle" style="background-color: #000000;"></div>
+                                    </button>
+                                    <button class="color-option" data-color="blue" data-type="frame">
+                                        <div class="color-circle" style="background-color: #5A7A8A;"></div>
+                                    </button>
+                                    <button class="color-option" data-color="orange" data-type="frame">
+                                        <div class="color-circle" style="background-color: #FF6B35;"></div>
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <div class="config-section">
+                                <h3 class="config-title">Lenses</h3>
+                                <div class="color-options">
+                                    <button class="color-option active" data-color="dark" data-type="glass">
+                                        <div class="color-circle" style="background-color: #404040;"></div>
+                                    </button>
+                                    <button class="color-option" data-color="brown" data-type="glass">
+                                        <div class="color-circle" style="background-color: #5D3A1A;"></div>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="config-section leather-section">
+                            <h3 class="config-title">Choose leather</h3>
+                            <div class="leather-box">
+                                <div class="primary-leather">
+                                                                    <div class="color-options">
+                                    <button class="color-option active" data-color="cognac" data-type="leather">
+                                        <div class="color-circle" style="background-color: #B56F35;"></div>
+                                    </button>
+                                    <button class="color-option" data-color="black" data-type="leather">
+                                        <div class="color-circle" style="background-color: #000000;"></div>
+                                    </button>
+                                    <button class="color-option" data-color="brown" data-type="leather">
+                                        <div class="color-circle" style="background-color: #5D3A1A;"></div>
+                                    </button>
+                                    <button class="color-option" data-color="white" data-type="leather">
+                                        <div class="color-circle" style="background-color: #F8F8F0;"></div>
+                                    </button>
+                                </div>
+                                </div>
+                                <p class="extra-leather-text">Add extra leather</p>
+                                <div class="extra-leather-options">
+                                    <button class="leather-checkbox" data-color="brown" data-type="extra-leather">
+                                        <div class="checkbox-circle" style="background-color: #5D3A1A;"></div>
+                                    </button>
+                                    <button class="leather-checkbox" data-color="black" data-type="extra-leather">
+                                        <div class="checkbox-circle" style="background-color: #000000;"></div>
+                                    </button>
+                                    <button class="leather-checkbox" data-color="cognac" data-type="extra-leather">
+                                        <div class="checkbox-circle" style="background-color: #B56F35;"></div>
+                                    </button>
+                                    <button class="leather-checkbox" data-color="white" data-type="extra-leather">
+                                        <div class="checkbox-circle" style="background-color: #F8F8F0;"></div>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Features Section -->
+                    <div class="features-section">
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M3 3h18v18H3z"/>
+                                    <path d="M3 9h18"/>
+                                    <path d="M9 9v12"/>
+                                </svg>
+                            </div>
+                            <span class="feature-text">Free Shipping</span>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">↻</div>
+                            <span class="feature-text">Free Returns</span>
+                        </div>
+                    </div>
+                    
+                    <button class="product-add-to-cart-btn" data-product="Engelberg Brown">ADD TO CART</button>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Other Models Section -->
-    <section class="other-models-section">
-        <h2 class="other-models-title">OTHER MODELS</h2>
-        <div class="other-models-grid">
-            <div class="other-model-card" onclick="window.location.href='engelberg-brown.html'">
-                <div class="other-model-image-container">
-                    <img src="EngelbergBrown.png" alt="Engelberg Brown" class="other-model-image">
-                </div>
-                <div class="other-model-info">
-                    <h3 class="other-model-title">Engelberg Brown</h3>
-                    <p class="other-model-price" data-price="150">EUR -</p>
-                </div>
-            </div>
-            <div class="other-model-card" onclick="window.location.href='grindelwald-yellow.html'">
-                <div class="other-model-image-container">
-                    <img src="GrindelwaldYellow.png" alt="Grindelwald Yellow" class="other-model-image">
-                </div>
-                <div class="other-model-info">
-                    <h3 class="other-model-title">Grindelwald Yellow</h3>
-                    <p class="other-model-price" data-price="150">EUR -</p>
-                </div>
-            </div>
-            <div class="other-model-card" onclick="window.location.href='verbier-green.html'">
-                <div class="other-model-image-container">
-                    <img src="VerbierGreen.png" alt="Verbier Green" class="other-model-image">
-                </div>
-                <div class="other-model-info">
-                    <h3 class="other-model-title">Verbier Green</h3>
-                    <p class="other-model-price" data-price="150">EUR -</p>
-                </div>
-            </div>
-            <div class="see-all-models-card" onclick="window.location.href='index.html'">
-                <div class="see-all-models-container">
-                    <a href="index.html" class="see-all-models-link">SEE ALL MODELS</a>
-                </div>
-            </div>
-        </div>
-    </section>
+
 
     <script>
 document.addEventListener('DOMContentLoaded', function () {
@@ -305,6 +362,8 @@ document.addEventListener('DOMContentLoaded', function () {
             document.querySelector('.search-container').classList.remove('search-active');
         }
     });
+
+
 
     // Mobile menu functionality
     const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
@@ -488,23 +547,18 @@ document.addEventListener('DOMContentLoaded', function () {
         // Update product page prices
         const productPagePrices = document.querySelectorAll('.product-page-price');
         productPagePrices.forEach(priceElement => {
-            const basePrice = priceElement.dataset.price;
-            const convertedPrice = convertPrice(basePrice, currency);
-            priceElement.textContent = `${currency} ${convertedPrice}`;
+            priceElement.textContent = `${currency} -`;
         });
         
         // Update other models prices
         const otherModelPrices = document.querySelectorAll('.other-model-price');
         otherModelPrices.forEach(priceElement => {
-            const basePrice = priceElement.dataset.price;
-            const convertedPrice = convertPrice(basePrice, currency);
-            priceElement.textContent = `${currency} ${convertedPrice}`;
+            priceElement.textContent = `${currency} -`;
         });
         
         // Update all cart items to new currency
         cartItems.forEach(item => {
-            const convertedPrice = convertPrice(item.basePrice, currency);
-            item.price = `${currency} ${convertedPrice}`;
+            item.price = `${currency} -`;
         });
         
         // Update cart display if cart is open
@@ -622,12 +676,7 @@ document.addEventListener('DOMContentLoaded', function () {
     
     function updateCartTotal() {
         const currentCurrency = getCurrentCurrency();
-        const total = cartItems.reduce((sum, item) => {
-            const price = parseInt(item.price.replace(/[A-Z]{3} /, ''));
-            return sum + (price * item.quantity);
-        }, 0);
-        
-        cartTotalAmount.textContent = `${currentCurrency} ${total}`;
+        cartTotalAmount.textContent = `${currentCurrency} -`;
     }
     
     // Checkout functionality
@@ -718,8 +767,194 @@ document.addEventListener('DOMContentLoaded', function () {
         updatePayButtonState();
     });
     
+    // Set configuration from URL parameter on page load
+    setConfigurationFromUrl();
+    
     // Initialize pay button state
     updatePayButtonState();
+    
+    // Function to get URL parameters
+    function getUrlParameter(name) {
+        name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+        var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+        var results = regex.exec(location.search);
+        return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+    }
+
+    // Function to set configuration based on URL parameter
+    function setConfigurationFromUrl() {
+        const config = getUrlParameter('config');
+        if (config) {
+            const productImage = document.querySelector('.product-page-image');
+            const frameOptions = document.querySelectorAll('[data-type="frame"]');
+            
+            // Remove active class from all frame options
+            frameOptions.forEach(opt => opt.classList.remove('active'));
+            
+            switch(config) {
+                case 'stainless':
+                    productImage.src = 'Rostfri.png';
+                    productImage.alt = 'Rostfri';
+                    document.querySelector('[data-color="stainless"][data-type="frame"]').classList.add('active');
+                    selectedFrameColor = 'stainless';
+                    selectLeatherByColor('cognac', false);
+                    break;
+                case 'black':
+                    productImage.src = 'Svart.png';
+                    productImage.alt = 'Svart';
+                    document.querySelector('[data-color="black"][data-type="frame"]').classList.add('active');
+                    selectedFrameColor = 'black';
+                    selectLeatherByColor('white', false);
+                    break;
+                case 'blue':
+                    productImage.src = 'Blå.png';
+                    productImage.alt = 'Blå';
+                    document.querySelector('[data-color="blue"][data-type="frame"]').classList.add('active');
+                    selectedFrameColor = 'blue';
+                    selectLeatherByColor('brown', false);
+                    break;
+                case 'orange':
+                    productImage.src = 'Orangea.png';
+                    productImage.alt = 'Orangea';
+                    document.querySelector('[data-color="orange"][data-type="frame"]').classList.add('active');
+                    selectedFrameColor = 'orange';
+                    selectLeatherByColor('black', false);
+                    break;
+            }
+            
+            // Update product name after a short delay to ensure all variables are set
+            setTimeout(() => {
+                updateProductName();
+            }, 50);
+        }
+    }
+
+    // Color configurator functionality
+    const colorOptions = document.querySelectorAll('.color-option');
+    const leatherCheckboxes = document.querySelectorAll('.leather-checkbox');
+    // Variables are already declared above, just use them
+    
+    colorOptions.forEach(option => {
+        option.addEventListener('click', function() {
+            const colorType = this.dataset.type;
+            const colorValue = this.dataset.color;
+            
+            if (colorType === 'frame') {
+                // Frame color: single selection
+                const frameOptions = document.querySelectorAll('[data-type="frame"]');
+                frameOptions.forEach(opt => opt.classList.remove('active'));
+                this.classList.add('active');
+                selectedFrameColor = colorValue;
+                
+                // Change product image based on frame color
+                const productImage = document.querySelector('.product-page-image');
+                switch(colorValue) {
+                    case 'stainless':
+                        productImage.src = 'Rostfri.png';
+                        productImage.alt = 'Rostfri';
+                        // Auto-select light brown leather
+                        selectLeatherByColor('cognac');
+                        break;
+                    case 'black':
+                        productImage.src = 'Svart.png';
+                        productImage.alt = 'Svart';
+                        // Auto-select white leather
+                        selectLeatherByColor('white');
+                        break;
+                    case 'blue':
+                        productImage.src = 'Blå.png';
+                        productImage.alt = 'Blå';
+                        // Auto-select dark brown leather
+                        selectLeatherByColor('brown');
+                        break;
+                    case 'orange':
+                        productImage.src = 'Orangea.png';
+                        productImage.alt = 'Orangea';
+                        // Auto-select black leather
+                        selectLeatherByColor('black');
+                        break;
+                }
+            } else if (colorType === 'leather') {
+                // Primary leather: single selection
+                const leatherOptions = document.querySelectorAll('[data-type="leather"]');
+                leatherOptions.forEach(opt => opt.classList.remove('active'));
+                this.classList.add('active');
+                selectedLeatherColors = [colorValue];
+            } else if (colorType === 'glass') {
+                // Glass type: single selection
+                const glassOptions = document.querySelectorAll('[data-type="glass"]');
+                glassOptions.forEach(opt => opt.classList.remove('active'));
+                this.classList.add('active');
+                selectedGlassType = colorValue;
+            }
+            
+            // Update product name with selected colors
+            updateProductName();
+        });
+    });
+    
+    // Extra leather checkbox functionality
+    leatherCheckboxes.forEach(checkbox => {
+        checkbox.addEventListener('click', function() {
+            const colorValue = this.dataset.color;
+            
+            if (this.classList.contains('selected')) {
+                // Remove if already selected
+                this.classList.remove('selected');
+                selectedLeatherColors = selectedLeatherColors.filter(color => color !== colorValue);
+            } else {
+                // Add if not selected
+                this.classList.add('selected');
+                selectedLeatherColors.push(colorValue);
+            }
+            
+            // Update product name with selected colors
+            updateProductName();
+        });
+    });
+    
+    function updateProductName() {
+        const productTitle = document.querySelector('.product-page-title');
+        const addToCartBtn = document.querySelector('.product-add-to-cart-btn');
+        
+        let newProductName = '';
+        
+        // Set model name based on frame color
+        switch(selectedFrameColor) {
+            case 'stainless':
+                newProductName = 'ZERMATT STAINLESS';
+                break;
+            case 'black':
+                newProductName = 'ALPBACH BLACK';
+                break;
+            case 'blue':
+                newProductName = 'CHAMONIX BLUE';
+                break;
+            case 'orange':
+                newProductName = 'VERBIER RED';
+                break;
+            default:
+                newProductName = 'ENGELBERG BROWN';
+        }
+        
+        productTitle.textContent = newProductName;
+        addToCartBtn.setAttribute('data-product', newProductName);
+    }
+    
+    // Function to select leather by color
+    function selectLeatherByColor(color, updateName = true) {
+        const leatherButtons = document.querySelectorAll('[data-type="leather"]');
+        leatherButtons.forEach(button => {
+            button.classList.remove('active');
+            if (button.getAttribute('data-color') === color) {
+                button.classList.add('active');
+                selectedLeatherColors = [color];
+            }
+        });
+        if (updateName) {
+            updateProductName();
+        }
+    }
     
     // Add to cart functionality for product page
     const addToCartBtn = document.querySelector('.product-add-to-cart-btn');
