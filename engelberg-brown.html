@@ -1,0 +1,973 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Engelberg Brown - IRIS</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="product-specific.css?v=2">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;400&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-left">
+            <a href="glaciers.html" class="nav-link">GLACIERS</a>
+            <a href="#" class="nav-link">JOURNAL</a>
+        </div>
+        
+        <div class="logo">
+            <a href="index.html" class="logo-link">
+                <span class="logo-text">IRIS</span>
+            </a>
+        </div>
+        
+        <div class="nav-right">
+            <div class="currency-dropdown">
+                <button id="currency-toggle" class="nav-link nav-link-button" aria-haspopup="true" aria-expanded="false" type="button">EUR</button>
+                <div id="currency-menu" class="dropdown-menu" role="menu" aria-label="Currency selector">
+                    <a href="#" class="dropdown-item" role="menuitem" data-currency="EUR" style="display: none;">EUR</a>
+                    <a href="#" class="dropdown-item" role="menuitem" data-currency="SEK">SEK</a>
+                    <a href="#" class="dropdown-item" role="menuitem" data-currency="USD">USD</a>
+                </div>
+            </div>
+            <div class="search-container">
+                <a href="#" class="nav-link search-trigger">SEARCH</a>
+                <div class="search-expanded">
+                    <input type="text" class="search-input" placeholder="Search for any model or color" />
+                    <div class="search-underline"></div>
+                </div>
+            </div>
+            <a href="#" class="nav-link bag-link">BAG (0)</a>
+        </div>
+        
+        <!-- Mobile BAG Link -->
+        <a href="#" class="nav-link bag-link-mobile">BAG (0)</a>
+        
+        <!-- Mobile Hamburger Menu -->
+        <div class="mobile-menu-toggle">
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu Overlay -->
+        <div class="mobile-menu-overlay">
+            <div class="mobile-menu-content">
+                <div class="mobile-menu-links">
+                    <a href="glaciers.html" class="mobile-nav-link">GLACIERS</a>
+                    <a href="#" class="mobile-nav-link">JOURNAL</a>
+                    <div class="mobile-currency-section">
+                        <span class="mobile-section-title">CURRENCY</span>
+                        <div class="mobile-currency-dropdown">
+                            <button class="mobile-currency-toggle" type="button">
+                                <span class="mobile-currency-selected">EUR</span>
+                                <span class="mobile-currency-arrow">▼</span>
+                            </button>
+                            <div class="mobile-currency-menu">
+                                <button class="mobile-currency-item active" data-currency="EUR">EUR</button>
+                                <button class="mobile-currency-item" data-currency="SEK">SEK</button>
+                                <button class="mobile-currency-item" data-currency="USD">USD</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mobile-search-section">
+                        <span class="mobile-section-title">SEARCH</span>
+                        <input type="text" class="mobile-search-input" placeholder="Search for any model or color" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Cart Overlay -->
+        <div class="cart-overlay">
+            <div class="cart-content">
+                <div class="cart-header">
+                    <h2 class="cart-title">CART</h2>
+                    <button class="cart-close">×</button>
+                </div>
+                <div class="cart-items">
+                    <!-- Cart items will be dynamically added here -->
+                </div>
+                <div class="cart-footer">
+                    <div class="cart-total">
+                        <span class="cart-total-label">TOTAL</span>
+                        <span class="cart-total-amount">€ 0</span>
+                    </div>
+                    <button class="apple-pay-button">
+                        <svg class="apple-pay-icon" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+                        </svg>
+                        <span>Buy with Apple Pay</span>
+                    </button>
+                    <button class="credit-card-button" id="pay-with-card-btn">
+                        <svg class="credit-card-icon" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M20 4H4c-1.11 0-1.99.89-1.99 2L2 18c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V6c0-1.11-.89-2-2-2zm0 14H4v-6h16v6zm0-10H4V6h16v2z"/>
+                        </svg>
+                        <span>Pay with Card</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Checkout Form Overlay -->
+    <div class="checkout-overlay">
+        <div class="checkout-content">
+            <div class="checkout-header">
+                <h2 class="checkout-title">CHECKOUT</h2>
+                <button class="checkout-back" id="checkout-back-btn">← Back to Cart</button>
+            </div>
+            <div class="checkout-form">
+                <div class="form-group">
+                    <label for="cardholder-name">Cardholder Name</label>
+                    <input type="text" id="cardholder-name" placeholder="Enter cardholder name" required>
+                </div>
+                <div class="form-group">
+                    <label for="card-number">Card Number</label>
+                    <input type="text" id="card-number" placeholder="1234 5678 9012 3456" maxlength="19" required>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="expiry-date">Expiry Date</label>
+                        <input type="text" id="expiry-date" placeholder="MM/YY" maxlength="5" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="cvv">CVV</label>
+                        <input type="text" id="cvv" placeholder="123" maxlength="4" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" placeholder="Enter email address" required>
+                </div>
+                <div class="checkout-total">
+                    <span class="checkout-total-label">TOTAL</span>
+                    <span class="checkout-total-amount">EUR 0</span>
+                </div>
+                <button class="checkout-submit-btn" id="checkout-submit-btn">
+                    <span>Complete Payment</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Product Page Content -->
+    <div class="product-page">
+        <div class="product-container">
+            <div class="product-image-section">
+                <img src="Rostfri.png" alt="Engelberg Brown" class="product-page-image">
+            </div>
+            <div class="product-details-section">
+                <button class="back-to-home-btn" onclick="window.location.href='index.html'">
+                    <span class="back-arrow">←</span>
+                    <span class="back-text">BACK TO HOME</span>
+                </button>
+                <div class="product-info">
+                    <div class="product-title-price">
+                        <h1 class="product-page-title">ENGELBERG BROWN</h1>
+                        <p class="product-page-price" data-price="150">EUR -</p>
+                    </div>
+                    
+                    <p class="product-description">
+                        Experience the warmth and elegance of our Engelberg Brown collection. 
+                        Crafted with premium materials and designed for comfort.
+                    </p>
+                    
+                    <!-- Color Configuration -->
+                    <div class="color-configurator">
+                        <div class="config-row">
+                            <div class="config-section">
+                                <h3 class="config-title">Frame Color</h3>
+                                <div class="color-options">
+                                    <button class="color-option active" data-color="stainless" data-type="frame">
+                                        <div class="color-circle" style="background-color: #B8B8B8;"></div>
+                                    </button>
+                                    <button class="color-option" data-color="black" data-type="frame">
+                                        <div class="color-circle" style="background-color: #000000;"></div>
+                                    </button>
+                                    <button class="color-option" data-color="blue" data-type="frame">
+                                        <div class="color-circle" style="background-color: #5A7A8A;"></div>
+                                    </button>
+                                    <button class="color-option" data-color="orange" data-type="frame">
+                                        <div class="color-circle" style="background-color: #FF6B35;"></div>
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <div class="config-section">
+                                <h3 class="config-title">Lenses</h3>
+                                <div class="color-options">
+                                    <button class="color-option active" data-color="dark" data-type="glass">
+                                        <div class="color-circle" style="background-color: #404040;"></div>
+                                    </button>
+                                    <button class="color-option" data-color="brown" data-type="glass">
+                                        <div class="color-circle" style="background-color: #5D3A1A;"></div>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="config-section leather-section">
+                            <h3 class="config-title">Choose leather</h3>
+                            <div class="leather-box">
+                                <div class="primary-leather">
+                                                                    <div class="color-options">
+                                    <button class="color-option active" data-color="cognac" data-type="leather">
+                                        <div class="color-circle" style="background-color: #B56F35;"></div>
+                                    </button>
+                                    <button class="color-option" data-color="black" data-type="leather">
+                                        <div class="color-circle" style="background-color: #000000;"></div>
+                                    </button>
+                                    <button class="color-option" data-color="brown" data-type="leather">
+                                        <div class="color-circle" style="background-color: #5D3A1A;"></div>
+                                    </button>
+                                    <button class="color-option" data-color="white" data-type="leather">
+                                        <div class="color-circle" style="background-color: #F8F8F0;"></div>
+                                    </button>
+                                </div>
+                                </div>
+                                <p class="extra-leather-text">Add extra leather</p>
+                                <div class="extra-leather-options">
+                                    <button class="leather-checkbox" data-color="brown" data-type="extra-leather">
+                                        <div class="checkbox-circle" style="background-color: #5D3A1A;"></div>
+                                    </button>
+                                    <button class="leather-checkbox" data-color="black" data-type="extra-leather">
+                                        <div class="checkbox-circle" style="background-color: #000000;"></div>
+                                    </button>
+                                    <button class="leather-checkbox" data-color="cognac" data-type="extra-leather">
+                                        <div class="checkbox-circle" style="background-color: #B56F35;"></div>
+                                    </button>
+                                    <button class="leather-checkbox" data-color="white" data-type="extra-leather">
+                                        <div class="checkbox-circle" style="background-color: #F8F8F0;"></div>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Features Section -->
+                    <div class="features-section">
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M3 3h18v18H3z"/>
+                                    <path d="M3 9h18"/>
+                                    <path d="M9 9v12"/>
+                                </svg>
+                            </div>
+                            <span class="feature-text">Free Shipping</span>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">↻</div>
+                            <span class="feature-text">Free Returns</span>
+                        </div>
+                    </div>
+                    
+                    <button class="product-add-to-cart-btn" data-product="Engelberg Brown">ADD TO CART</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Other Models Section -->
+    <section class="other-models-section">
+        <h2 class="other-models-title">OTHER MODELS</h2>
+        <div class="other-models-grid">
+            <div class="other-model-card" onclick="window.location.href='grindelwald-yellow.html'">
+                <div class="other-model-image-container">
+                    <img src="GrindelwaldYellow.png" alt="Grindelwald Yellow" class="other-model-image">
+                </div>
+                <div class="other-model-info">
+                    <h3 class="other-model-title">Grindelwald Yellow</h3>
+                    <p class="other-model-price" data-price="150">EUR -</p>
+                </div>
+            </div>
+            <div class="other-model-card" onclick="window.location.href='chamonix-blue.html'">
+                <div class="other-model-image-container">
+                    <img src="ChamonixBlue.png" alt="Chamonix Blue" class="other-model-image">
+                </div>
+                <div class="other-model-info">
+                    <h3 class="other-model-title">Chamonix Blue</h3>
+                    <p class="other-model-price" data-price="150">EUR -</p>
+                </div>
+            </div>
+            <div class="other-model-card" onclick="window.location.href='verbier-green.html'">
+                <div class="other-model-image-container">
+                    <img src="VerbierGreen.png" alt="Verbier Green" class="other-model-image">
+                </div>
+                <div class="other-model-info">
+                    <h3 class="other-model-title">Verbier Green</h3>
+                    <p class="other-model-price" data-price="150">EUR -</p>
+                </div>
+            </div>
+            <div class="see-all-models-card" onclick="window.location.href='index.html'">
+                <div class="see-all-models-container">
+                    <a href="index.html" class="see-all-models-link">SEE ALL MODELS</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+document.addEventListener('DOMContentLoaded', function () {
+    const dropdown = document.querySelector('.currency-dropdown');
+    const toggle = document.getElementById('currency-toggle');
+    const menu = document.getElementById('currency-menu');
+
+    function closeDropdown() {
+        dropdown.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+    }
+
+    toggle.addEventListener('click', function (e) {
+        e.stopPropagation();
+        const isOpen = dropdown.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', String(isOpen));
+    });
+
+    document.addEventListener('click', function (e) {
+        if (!dropdown.contains(e.target)) {
+            closeDropdown();
+        }
+    });
+
+    // Handle currency selection
+    menu.addEventListener('click', function (e) {
+        const target = e.target;
+        if (target && target.matches('.dropdown-item')) {
+            const selectedCurrency = target.dataset.currency || target.textContent;
+            toggle.textContent = selectedCurrency;
+            
+            // Show only the currencies that are NOT selected
+            const allItems = menu.querySelectorAll('.dropdown-item');
+            allItems.forEach(item => {
+                const itemCurrency = item.dataset.currency || item.textContent;
+                if (itemCurrency === selectedCurrency) {
+                    item.style.display = 'none';
+                } else {
+                    item.style.display = 'block';
+                }
+            });
+            
+            // Update all product prices
+            updateAllPrices(selectedCurrency);
+            
+            // Update cart items if cart is open
+            if (cartItems.length > 0) {
+                updateCartDisplay();
+            }
+            
+            closeDropdown();
+            e.preventDefault();
+        }
+    });
+
+    // Search functionality
+    const searchTrigger = document.querySelector('.search-trigger');
+    const searchExpanded = document.querySelector('.search-expanded');
+    const searchInput = document.querySelector('.search-input');
+    const navRight = document.querySelector('.nav-right');
+
+    searchTrigger.addEventListener('click', function (e) {
+        e.preventDefault();
+        searchTrigger.style.display = 'none';
+        navRight.classList.add('search-active');
+        document.querySelector('.search-container').classList.add('search-active');
+        // Trigger staggered effects after width transition starts
+        setTimeout(() => {
+            searchInput.focus();
+        }, 150);
+    });
+
+    // Close search when clicking outside
+    document.addEventListener('click', function (e) {
+        if (!searchExpanded.contains(e.target) && !searchTrigger.contains(e.target)) {
+            searchTrigger.style.display = 'block';
+            navRight.classList.remove('search-active');
+            document.querySelector('.search-container').classList.remove('search-active');
+        }
+    });
+
+    // Close search on escape key
+    document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && document.querySelector('.search-container').classList.contains('search-active')) {
+            searchTrigger.style.display = 'block';
+            navRight.classList.remove('search-active');
+            document.querySelector('.search-container').classList.remove('search-active');
+        }
+    });
+
+
+
+    // Mobile menu functionality
+    const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+    const mobileMenuOverlay = document.querySelector('.mobile-menu-overlay');
+
+    function openMobileMenu() {
+        mobileMenuToggle.classList.add('active');
+        mobileMenuOverlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeMobileMenu() {
+        mobileMenuToggle.classList.remove('active');
+        mobileMenuOverlay.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+
+    mobileMenuToggle.addEventListener('click', function() {
+        if (mobileMenuOverlay.classList.contains('active')) {
+            closeMobileMenu();
+        } else {
+            openMobileMenu();
+        }
+    });
+
+    // Close menu when clicking outside
+    mobileMenuOverlay.addEventListener('click', function(e) {
+        if (e.target === mobileMenuOverlay) {
+            closeMobileMenu();
+        }
+    });
+
+    // Close menu when clicking on document (outside menu)
+    document.addEventListener('click', function(e) {
+        if (mobileMenuOverlay.classList.contains('active') && 
+            !mobileMenuOverlay.contains(e.target) && 
+            !mobileMenuToggle.contains(e.target)) {
+            closeMobileMenu();
+        }
+    });
+
+    // Close menu on escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && mobileMenuOverlay.classList.contains('active')) {
+            closeMobileMenu();
+        }
+    });
+
+    // Mobile currency dropdown functionality
+    const mobileCurrencyToggle = document.querySelector('.mobile-currency-toggle');
+    const mobileCurrencyDropdown = document.querySelector('.mobile-currency-dropdown');
+    const mobileCurrencyItems = document.querySelectorAll('.mobile-currency-item');
+    const mobileCurrencySelected = document.querySelector('.mobile-currency-selected');
+
+    mobileCurrencyToggle.addEventListener('click', function(e) {
+        e.stopPropagation();
+        mobileCurrencyDropdown.classList.toggle('open');
+    });
+
+    // Close mobile currency dropdown when clicking outside
+    document.addEventListener('click', function(e) {
+        if (!mobileCurrencyDropdown.contains(e.target)) {
+            mobileCurrencyDropdown.classList.remove('open');
+        }
+    });
+
+    // Mobile currency selection
+    mobileCurrencyItems.forEach(item => {
+        item.addEventListener('click', function() {
+            const currency = this.dataset.currency;
+            
+            // Update mobile selected currency
+            mobileCurrencySelected.textContent = currency;
+            
+            // Update mobile currency items
+            mobileCurrencyItems.forEach(i => i.classList.remove('active'));
+            this.classList.add('active');
+            
+            // Update desktop currency toggle
+            document.getElementById('currency-toggle').textContent = currency;
+            
+            // Update desktop dropdown
+            const desktopItems = document.querySelectorAll('.dropdown-item');
+            desktopItems.forEach(item => {
+                const itemCurrency = item.dataset.currency || item.textContent;
+                if (itemCurrency === currency) {
+                    item.style.display = 'none';
+                } else {
+                    item.style.display = 'block';
+                }
+            });
+            
+            // Close mobile dropdown
+            mobileCurrencyDropdown.classList.remove('open');
+        });
+    });
+
+    // Add to cart functionality
+    let cartCount = 0;
+    let cartItems = [];
+    const cartOverlay = document.querySelector('.cart-overlay');
+    const cartItemsContainer = document.querySelector('.cart-items');
+    const cartTotalAmount = document.querySelector('.cart-total-amount');
+    
+    // Cart overlay functionality
+    const cartClose = document.querySelector('.cart-close');
+    
+    function openCart() {
+        cartOverlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+        updateCartDisplay();
+    }
+    
+    function closeCart() {
+        cartOverlay.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+    
+    // Open cart when clicking on BAG links
+    const bagLink = document.querySelector('.bag-link');
+    const bagLinkMobile = document.querySelector('.bag-link-mobile');
+    
+    bagLink.addEventListener('click', function(e) {
+        e.preventDefault();
+        openCart();
+    });
+    
+    bagLinkMobile.addEventListener('click', function(e) {
+        e.preventDefault();
+        openCart();
+    });
+    
+    // Close cart functionality
+    cartClose.addEventListener('click', closeCart);
+    
+    // Close cart when clicking outside
+    cartOverlay.addEventListener('click', function(e) {
+        if (e.target === cartOverlay) {
+            closeCart();
+        }
+    });
+    
+    // Close cart when clicking outside on desktop (only when cart is active)
+    document.addEventListener('click', function(e) {
+        if (cartOverlay.classList.contains('active') && 
+            !cartOverlay.contains(e.target) && 
+            !bagLink.contains(e.target) && 
+            !bagLinkMobile.contains(e.target)) {
+            closeCart();
+        }
+    });
+    
+    // Close cart on escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && cartOverlay.classList.contains('active')) {
+            closeCart();
+        }
+    });
+    
+    // Currency conversion rates (simplified)
+    const currencyRates = {
+        'EUR': 1,
+        'SEK': 11.2,
+        'USD': 1.08
+    };
+    
+    // Get current currency
+    function getCurrentCurrency() {
+        return document.getElementById('currency-toggle').textContent;
+    }
+    
+    // Convert price to selected currency
+    function convertPrice(price, currency) {
+        const basePrice = parseInt(price);
+        const rate = currencyRates[currency] || 1;
+        return Math.round(basePrice * rate);
+    }
+    
+    // Update all product prices
+    function updateAllPrices(currency) {
+        // Update product page prices
+        const productPagePrices = document.querySelectorAll('.product-page-price');
+        productPagePrices.forEach(priceElement => {
+            const basePrice = priceElement.dataset.price;
+            const convertedPrice = convertPrice(basePrice, currency);
+            priceElement.textContent = `${currency} ${convertedPrice}`;
+        });
+        
+        // Update other models prices
+        const otherModelPrices = document.querySelectorAll('.other-model-price');
+        otherModelPrices.forEach(priceElement => {
+            const basePrice = priceElement.dataset.price;
+            const convertedPrice = convertPrice(basePrice, currency);
+            priceElement.textContent = `${currency} ${convertedPrice}`;
+        });
+        
+        // Update all cart items to new currency
+        cartItems.forEach(item => {
+            const convertedPrice = convertPrice(item.basePrice, currency);
+            item.price = `${currency} ${convertedPrice}`;
+        });
+        
+        // Update cart display if cart is open
+        if (cartOverlay.classList.contains('active')) {
+            updateCartDisplay();
+        }
+    }
+    
+    function updateCartDisplay() {
+        cartItemsContainer.innerHTML = '';
+        
+        if (cartItems.length === 0) {
+            cartItemsContainer.innerHTML = `
+                <div style="text-align: center; color: white; padding: 40px 0; opacity: 0.7;">
+                    <div style="font-size: 16px; font-family: 'Modeco Trial', sans-serif; font-weight: 400; margin-bottom: 8px;">
+                        No products in basket
+                    </div>
+                </div>
+            `;
+            updateCartTotal();
+            return;
+        }
+        
+        cartItems.forEach((item, index) => {
+            const cartItemHTML = `
+                <div class="cart-item">
+                    <div class="cart-item-image">
+                        <img src="${item.name.replace(/\s+/g, '')}.png" alt="${item.name}">
+                    </div>
+                    <div class="cart-item-details">
+                        <div class="cart-item-name">${item.name}</div>
+                        <div class="cart-item-price">${item.price}</div>
+                    </div>
+                    <div class="cart-item-quantity">
+                        <div class="quantity-dropdown">
+                            <button class="quantity-toggle" type="button" data-item-index="${index}">
+                                <span class="quantity-selected">${item.quantity}</span>
+                                <span class="quantity-arrow">▼</span>
+                            </button>
+                            <div class="quantity-menu">
+                                <button class="quantity-item" data-quantity="1" data-item-index="${index}">1</button>
+                                <button class="quantity-item" data-quantity="2" data-item-index="${index}">2</button>
+                                <button class="quantity-item" data-quantity="3" data-item-index="${index}">3</button>
+                                <button class="quantity-item" data-quantity="4" data-item-index="${index}">4</button>
+                                <button class="quantity-item" data-quantity="5" data-item-index="${index}">5</button>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="cart-item-delete" data-item-index="${index}">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"/>
+                        </svg>
+                    </button>
+                </div>
+            `;
+            cartItemsContainer.innerHTML += cartItemHTML;
+        });
+        
+        // Add event listeners to quantity dropdowns
+        document.querySelectorAll('.quantity-toggle').forEach(toggle => {
+            toggle.addEventListener('click', function(e) {
+                e.stopPropagation();
+                const dropdown = this.parentElement;
+                dropdown.classList.toggle('open');
+            });
+        });
+        
+        document.querySelectorAll('.quantity-item').forEach(item => {
+            item.addEventListener('click', function() {
+                const quantity = parseInt(this.dataset.quantity);
+                const itemIndex = parseInt(this.dataset.itemIndex);
+                
+                // Update quantity
+                cartItems[itemIndex].quantity = quantity;
+                
+                // Update display
+                const toggle = document.querySelector(`[data-item-index="${itemIndex}"]`);
+                const selectedSpan = toggle.querySelector('.quantity-selected');
+                selectedSpan.textContent = quantity;
+                
+                // Close dropdown
+                this.closest('.quantity-dropdown').classList.remove('open');
+                
+                // Update total
+                updateCartTotal();
+                updatePayButtonState();
+            });
+        });
+        
+        // Add event listeners to delete buttons
+        document.querySelectorAll('.cart-item-delete').forEach(deleteBtn => {
+            deleteBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                
+                const itemIndex = parseInt(this.dataset.itemIndex);
+                
+                // Remove item from cart
+                cartItems.splice(itemIndex, 1);
+                
+                // Update cart count
+                cartCount = cartItems.reduce((total, item) => total + item.quantity, 0);
+                
+                // Update bag count on both desktop and mobile
+                bagLink.textContent = `BAG (${cartCount})`;
+                bagLinkMobile.textContent = `BAG (${cartCount})`;
+                
+                // Update cart display
+                updateCartDisplay();
+            });
+        });
+        
+        updateCartTotal();
+    }
+    
+    function updateCartTotal() {
+        const currentCurrency = getCurrentCurrency();
+        const total = cartItems.reduce((sum, item) => {
+            const price = parseInt(item.price.replace(/[A-Z]{3} /, ''));
+            return sum + (price * item.quantity);
+        }, 0);
+        
+        cartTotalAmount.textContent = `${currentCurrency} ${total}`;
+    }
+    
+    // Checkout functionality
+    const checkoutOverlay = document.querySelector('.checkout-overlay');
+    const payWithCardBtn = document.getElementById('pay-with-card-btn');
+    const checkoutBackBtn = document.getElementById('checkout-back-btn');
+    const checkoutSubmitBtn = document.getElementById('checkout-submit-btn');
+    const checkoutTotalAmount = document.querySelector('.checkout-total-amount');
+    
+    // Function to update pay button state
+    function updatePayButtonState() {
+        if (cartItems.length === 0) {
+            payWithCardBtn.disabled = true;
+            payWithCardBtn.style.opacity = '0.5';
+            payWithCardBtn.style.cursor = 'not-allowed';
+        } else {
+            payWithCardBtn.disabled = false;
+            payWithCardBtn.style.opacity = '1';
+            payWithCardBtn.style.cursor = 'pointer';
+        }
+    }
+    
+    // Function to show checkout
+    function showCheckout() {
+        if (cartItems.length === 0) return;
+        
+        // Update checkout total
+        const currentCurrency = getCurrentCurrency();
+        const total = cartItems.reduce((sum, item) => {
+            const price = parseInt(item.price.replace(/[A-Z]{3} /, ''));
+            return sum + (price * item.quantity);
+        }, 0);
+        checkoutTotalAmount.textContent = `${currentCurrency} ${total}`;
+        
+        // Hide cart and show checkout
+        cartOverlay.classList.remove('active');
+        checkoutOverlay.classList.add('active');
+    }
+    
+    // Function to hide checkout
+    function hideCheckout() {
+        checkoutOverlay.classList.remove('active');
+        cartOverlay.classList.add('active');
+    }
+    
+    // Event listeners for checkout
+    payWithCardBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        if (cartItems.length > 0) {
+            showCheckout();
+        }
+    });
+    
+    checkoutBackBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        hideCheckout();
+    });
+    
+    checkoutSubmitBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        
+        // Get form values
+        const cardholderName = document.getElementById('cardholder-name').value;
+        const cardNumber = document.getElementById('card-number').value;
+        const expiryDate = document.getElementById('expiry-date').value;
+        const cvv = document.getElementById('cvv').value;
+        const email = document.getElementById('email').value;
+        
+        // Basic validation
+        if (!cardholderName || !cardNumber || !expiryDate || !cvv || !email) {
+            alert('Please fill in all required fields');
+            return;
+        }
+        
+        // Here you would typically send the payment data to your payment processor
+        alert('Payment processing... This is a demo.');
+        
+        // Clear cart and close checkout
+        cartItems = [];
+        cartCount = 0;
+        bagLink.textContent = `BAG (${cartCount})`;
+        bagLinkMobile.textContent = `BAG (${cartCount})`;
+        hideCheckout();
+        updateCartDisplay();
+        updatePayButtonState();
+    });
+    
+    // Initialize pay button state
+    updatePayButtonState();
+    
+    // Color configurator functionality
+    const colorOptions = document.querySelectorAll('.color-option');
+    const leatherCheckboxes = document.querySelectorAll('.leather-checkbox');
+    let selectedFrameColor = 'stainless';
+    let selectedLeatherColors = ['cognac'];
+    let selectedGlassType = 'light';
+    
+    colorOptions.forEach(option => {
+        option.addEventListener('click', function() {
+            const colorType = this.dataset.type;
+            const colorValue = this.dataset.color;
+            
+            if (colorType === 'frame') {
+                // Frame color: single selection
+                const frameOptions = document.querySelectorAll('[data-type="frame"]');
+                frameOptions.forEach(opt => opt.classList.remove('active'));
+                this.classList.add('active');
+                selectedFrameColor = colorValue;
+                
+                // Change product image based on frame color
+                const productImage = document.querySelector('.product-page-image');
+                switch(colorValue) {
+                    case 'stainless':
+                        productImage.src = 'Rostfri.png';
+                        productImage.alt = 'Rostfri';
+                        // Auto-select light brown leather
+                        selectLeatherByColor('cognac');
+                        break;
+                    case 'black':
+                        productImage.src = 'Svart.png';
+                        productImage.alt = 'Svart';
+                        // Auto-select white leather
+                        selectLeatherByColor('white');
+                        break;
+                    case 'blue':
+                        productImage.src = 'Blå.png';
+                        productImage.alt = 'Blå';
+                        // Auto-select dark brown leather
+                        selectLeatherByColor('brown');
+                        break;
+                    case 'orange':
+                        productImage.src = 'Orangea.png';
+                        productImage.alt = 'Orangea';
+                        // Auto-select black leather
+                        selectLeatherByColor('black');
+                        break;
+                }
+            } else if (colorType === 'leather') {
+                // Primary leather: single selection
+                const leatherOptions = document.querySelectorAll('[data-type="leather"]');
+                leatherOptions.forEach(opt => opt.classList.remove('active'));
+                this.classList.add('active');
+                selectedLeatherColors = [colorValue];
+            } else if (colorType === 'glass') {
+                // Glass type: single selection
+                const glassOptions = document.querySelectorAll('[data-type="glass"]');
+                glassOptions.forEach(opt => opt.classList.remove('active'));
+                this.classList.add('active');
+                selectedGlassType = colorValue;
+            }
+            
+            // Update product name with selected colors
+            updateProductName();
+        });
+    });
+    
+    // Extra leather checkbox functionality
+    leatherCheckboxes.forEach(checkbox => {
+        checkbox.addEventListener('click', function() {
+            const colorValue = this.dataset.color;
+            
+            if (this.classList.contains('selected')) {
+                // Remove if already selected
+                this.classList.remove('selected');
+                selectedLeatherColors = selectedLeatherColors.filter(color => color !== colorValue);
+            } else {
+                // Add if not selected
+                this.classList.add('selected');
+                selectedLeatherColors.push(colorValue);
+            }
+            
+            // Update product name with selected colors
+            updateProductName();
+        });
+    });
+    
+    function updateProductName() {
+        const productTitle = document.querySelector('.product-page-title');
+        const addToCartBtn = document.querySelector('.product-add-to-cart-btn');
+        
+        let newProductName = 'ENGELBERG';
+        
+        // Add frame color to model name
+        if (selectedFrameColor !== 'brown') {
+            newProductName += ` ${selectedFrameColor.toUpperCase()}`;
+        } else {
+            newProductName += ' BROWN';
+        }
+        
+        productTitle.textContent = newProductName;
+        addToCartBtn.setAttribute('data-product', newProductName);
+    }
+    
+    // Function to select leather by color
+    function selectLeatherByColor(color) {
+        const leatherButtons = document.querySelectorAll('[data-type="leather"]');
+        leatherButtons.forEach(button => {
+            button.classList.remove('active');
+            if (button.getAttribute('data-color') === color) {
+                button.classList.add('active');
+                selectedLeatherColors = [color];
+            }
+        });
+        updateProductName();
+    }
+    
+    // Add to cart functionality for product page
+    const addToCartBtn = document.querySelector('.product-add-to-cart-btn');
+    
+    if (addToCartBtn) {
+        addToCartBtn.addEventListener('click', function() {
+            const productName = this.getAttribute('data-product');
+            const productPrice = document.querySelector('.product-page-price').getAttribute('data-price');
+            
+            // Add to cart
+            const existingItem = cartItems.find(item => item.name === productName);
+            if (existingItem) {
+                existingItem.quantity++;
+            } else {
+                cartItems.push({
+                    name: productName,
+                    basePrice: parseInt(productPrice),
+                    price: `${getCurrentCurrency()} ${productPrice}`,
+                    quantity: 1
+                });
+            }
+            cartCount++;
+            
+            // Update bag count on both desktop and mobile
+            bagLink.textContent = `BAG (${cartCount})`;
+            bagLinkMobile.textContent = `BAG (${cartCount})`;
+            
+            // Update cart display if cart is open
+            if (cartOverlay.classList.contains('active')) {
+                updateCartDisplay();
+            }
+            
+            updatePayButtonState();
+        });
+    }
+});
+</script>
+</body>
+</html>

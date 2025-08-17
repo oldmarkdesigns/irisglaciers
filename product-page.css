@@ -1,0 +1,1256 @@
+/* Product Page Styles */
+
+/* Navigation Bar */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 68px;
+    background: rgba(51, 43, 34, 0.8);
+    backdrop-filter: blur(8px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 64px;
+    z-index: 1000;
+    transition: background 0.3s ease;
+}
+
+.nav-left, .nav-right {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.nav-link {
+    color: white;
+    font-size: 16px;
+    font-family: 'Modeco Trial', sans-serif;
+    font-weight: 400;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+    padding-bottom: 4px;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: white;
+    transition: width 0.3s ease;
+    opacity: 1;
+    z-index: 1;
+}
+
+.nav-link:hover::after {
+    width: 100% !important;
+}
+
+/* Logo */
+.logo {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.logo-text {
+    color: white;
+    font-size: 40px;
+    font-family: 'Modeco Trial', sans-serif;
+    font-weight: 200;
+    letter-spacing: 2px;
+}
+
+/* Currency dropdown */
+.currency-dropdown {
+    position: relative;
+}
+
+.nav-link-button {
+    background: transparent;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    color: white;
+    font-size: 16px;
+    font-family: 'Modeco Trial', sans-serif;
+    font-weight: 400;
+    position: relative;
+    display: inline-block;
+    padding-bottom: 4px;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: rgba(51, 43, 34, 0.6);
+    backdrop-filter: blur(8px);
+    padding: 12px 12px;
+    display: none;
+    flex-direction: column;
+    gap: 12px;
+    border-radius: 4px;
+    min-width: 80px;
+    margin-top: 8px;
+}
+
+.dropdown-item {
+    color: white;
+    font-size: 16px;
+    font-family: 'Modeco Trial', sans-serif;
+    text-decoration: none;
+    white-space: nowrap;
+    position: relative;
+    padding-left: 12px;
+    transition: all 0.3s ease;
+    padding-bottom: 4px;
+}
+
+.dropdown-item::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: calc(50% - 2px);
+    transform: translateY(-50%);
+    width: 3px;
+    height: 16px;
+    background: white;
+    border-radius: 2px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.dropdown-item:hover::before {
+    opacity: 1;
+}
+
+.currency-dropdown.open #currency-menu {
+    display: flex;
+}
+
+/* Search functionality */
+.search-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: auto;
+}
+
+.search-trigger {
+    width: auto;
+    flex-shrink: 0;
+}
+
+.search-expanded {
+    position: relative;
+    width: 200px;
+    background: transparent;
+    z-index: 1001;
+    transition: width 0.6s ease-in-out, opacity 0.6s ease-in-out;
+    overflow: hidden;
+    opacity: 0;
+}
+
+.search-container.search-active .search-expanded {
+    width: 240px;
+    opacity: 1;
+}
+
+.search-input {
+    width: 100%;
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 16px;
+    font-family: 'Modeco Trial', sans-serif;
+    font-weight: 400;
+    outline: none;
+    padding: 0;
+    margin: 0;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    transition-delay: 0.3s;
+}
+
+.search-container:not(.search-active) .search-input {
+    transition-delay: 0s;
+}
+
+.search-container.search-active .search-input {
+    opacity: 1;
+}
+
+.search-underline {
+    width: 100%;
+    height: 1px;
+    background: white;
+    margin-top: 4px;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s ease-in-out;
+    transition-delay: 0.2s;
+}
+
+.search-container:not(.search-active) .search-underline {
+    transition-delay: 0.1s;
+}
+
+.search-container.search-active .search-underline {
+    transform: scaleX(1);
+}
+
+.search-input::placeholder {
+    color: white;
+    opacity: 0.8;
+}
+
+/* When search is expanded, adjust layout */
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    transition: all 0.8s ease-in-out;
+}
+
+.nav-right.search-active {
+    justify-content: flex-start;
+    gap: 20px;
+}
+
+.search-active .currency-dropdown {
+    flex-shrink: 0;
+    transition: all 0.8s ease-in-out;
+}
+
+.search-active .search-container {
+    flex: 1;
+    min-width: 240px;
+    transition: all 0.8s ease-in-out;
+}
+
+
+
+
+
+/* BAG Link */
+.bag-link {
+    display: block !important;
+}
+
+/* Ensure desktop navigation is visible */
+@media (min-width: 769px) {
+    .nav-left, .nav-right {
+        display: flex !important;
+    }
+    
+    .bag-link-mobile {
+        display: none !important;
+    }
+    
+    .mobile-menu-toggle {
+        display: none !important;
+    }
+}
+
+/* Mobile BAG Link */
+.bag-link-mobile {
+    display: none;
+    position: absolute;
+    left: 24px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1002;
+    color: white !important;
+}
+
+/* Mobile Hamburger Menu */
+.mobile-menu-toggle {
+    display: none;
+    position: absolute;
+    right: 24px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1002;
+    cursor: pointer;
+}
+
+.hamburger {
+    width: 24px;
+    height: 18px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.hamburger span {
+    width: 100%;
+    height: 2px;
+    background: white;
+    transition: all 0.3s ease;
+}
+
+.mobile-menu-toggle.active .hamburger span:nth-child(1) {
+    transform: rotate(45deg) translate(6px, 6px);
+}
+
+.mobile-menu-toggle.active .hamburger span:nth-child(2) {
+    opacity: 0;
+}
+
+.mobile-menu-toggle.active .hamburger span:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/* Mobile Menu Overlay */
+.mobile-menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(51, 43, 34, 0.6);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    z-index: 1001;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.mobile-menu-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.mobile-menu-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 80px 24px 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.mobile-menu-links {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    width: 100%;
+}
+
+.mobile-nav-link {
+    color: white;
+    font-size: 24px;
+    font-family: 'Modeco Trial', sans-serif;
+    font-weight: 400;
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+}
+
+.mobile-nav-link:hover {
+    opacity: 0.7;
+}
+
+.mobile-section-title {
+    color: white;
+    font-size: 14px;
+    font-family: 'Modeco Trial', sans-serif;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 16px;
+}
+
+.mobile-currency-dropdown {
+    position: relative;
+    width: 100%;
+}
+
+.mobile-currency-toggle {
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 24px;
+    font-family: 'Modeco Trial', sans-serif;
+    font-weight: 400;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 0;
+}
+
+.mobile-currency-arrow {
+    font-size: 12px;
+    transition: transform 0.3s ease;
+}
+
+.mobile-currency-dropdown.open .mobile-currency-arrow {
+    transform: rotate(180deg);
+}
+
+.mobile-currency-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(8px);
+    padding: 12px;
+    display: none;
+    flex-direction: column;
+    gap: 8px;
+    border-radius: 4px;
+    margin-top: 8px;
+    min-width: 120px;
+}
+
+.mobile-currency-dropdown.open .mobile-currency-menu {
+    display: flex;
+}
+
+.mobile-currency-item {
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 18px;
+    font-family: 'Modeco Trial', sans-serif;
+    font-weight: 400;
+    cursor: pointer;
+    padding: 8px 12px;
+    text-align: left;
+    transition: background 0.3s ease;
+    border-radius: 4px;
+}
+
+.mobile-currency-item:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.mobile-currency-item.active {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.mobile-search-input {
+    width: 100%;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid white;
+    color: white;
+    font-size: 18px;
+    font-family: 'Modeco Trial', sans-serif;
+    font-weight: 400;
+    outline: none;
+    padding: 8px 0;
+}
+
+.mobile-search-input::placeholder {
+    color: white;
+    opacity: 0.7;
+}
+
+/* Cart Overlay */
+.cart-overlay {
+    position: fixed;
+    top: 0;
+    right: -25%;
+    width: 25%;
+    height: 100vh;
+    background: rgba(51, 43, 34, 0.6);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    z-index: 1001;
+    transition: right 0.3s ease-in-out;
+}
+
+.cart-overlay.active {
+    right: 0;
+}
+
+.cart-content {
+    padding: 80px 32px 32px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 40px;
+    box-sizing: border-box;
+}
+
+.cart-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+    color: white;
+}
+
+.cart-title {
+    font-size: 24px;
+    font-family: 'Modeco Trial', sans-serif;
+    font-weight: 400;
+}
+
+.cart-close {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 0;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cart-items {
+    flex: 1;
+    overflow-y: auto;
+    margin-bottom: 32px;
+    min-height: 0;
+}
+
+.cart-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 16px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+    position: relative;
+}
+
+.cart-item-image {
+    width: 60px;
+    height: 60px;
+    background: #F3F2EF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.cart-item-image img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.cart-item-details {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.cart-item-name {
+    font-size: 16px;
+    font-family: 'Modeco Trial', sans-serif;
+    font-weight: 400;
+    word-wrap: break-word;
+    line-height: 1.2;
+}
+
+.cart-item-price {
+    font-size: 16px;
+    font-family: 'Modeco Trial', sans-serif;
+    font-weight: 400;
+}
+
+.cart-item-controls {
+    display: flex;
+    align-items: flex-end;
+    gap: 12px;
+    margin-top: auto;
+    padding-top: 8px;
+}
+
+.cart-item-quantity {
+    position: relative;
+}
+
+.quantity-dropdown {
+    position: relative;
+}
+
+.quantity-toggle {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: white;
+    font-size: 14px;
+    font-family: 'Modeco Trial', sans-serif;
+    font-weight: 400;
+    cursor: pointer;
+    padding: 8px 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border-radius: 4px;
+    min-width: 80px;
+}
+
+.quantity-arrow {
+    font-size: 10px;
+    transition: transform 0.3s ease;
+}
+
+.quantity-dropdown.open .quantity-arrow {
+    transform: rotate(180deg);
+}
+
+.quantity-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: rgba(51, 43, 34, 0.8);
+    backdrop-filter: blur(8px);
+    padding: 8px;
+    display: none;
+    flex-direction: column;
+    gap: 4px;
+    border-radius: 4px;
+    margin-top: 4px;
+    min-width: 80px;
+    z-index: 10;
+}
+
+.quantity-dropdown.open .quantity-menu {
+    display: flex;
+}
+
+.quantity-item {
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 14px;
+    font-family: 'Modeco Trial', sans-serif;
+    font-weight: 400;
+    cursor: pointer;
+    padding: 6px 12px;
+    text-align: center;
+    transition: background 0.3s ease;
+    border-radius: 2px;
+}
+
+.quantity-item:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.cart-item-delete {
+    background: transparent;
+    border: none;
+    color: white;
+    cursor: pointer;
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    transition: background 0.3s ease;
+    height: 36px;
+    width: 36px;
+}
+
+.cart-item-delete:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.cart-item-delete svg {
+    width: 20px;
+    height: 20px;
+}
+
+.cart-footer {
+    flex-shrink: 0;
+    padding: 24px;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.cart-total {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.cart-total-label {
+    color: white;
+    font-size: 16px;
+    font-family: 'Modeco Trial', sans-serif;
+    font-weight: 400;
+}
+
+.cart-total-amount {
+    color: white;
+    font-size: 18px;
+    font-family: 'Modeco Trial', sans-serif;
+    font-weight: 400;
+}
+
+.apple-pay-button {
+    width: 100%;
+    background: black;
+    color: white;
+    border: none;
+    padding: 16px;
+    font-size: 16px;
+    font-family: 'Modeco Trial', sans-serif;
+    font-weight: 400;
+    cursor: pointer;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 12px;
+    transition: background 0.3s ease;
+}
+
+.apple-pay-button:hover {
+    background: #333;
+}
+
+.apple-pay-icon {
+    width: 20px;
+    height: 20px;
+}
+
+.credit-card-button {
+    width: 100%;
+    background: white;
+    color: #332B22;
+    border: none;
+    padding: 16px;
+    font-size: 16px;
+    font-family: 'Modeco Trial', sans-serif;
+    font-weight: 400;
+    cursor: pointer;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    transition: background 0.3s ease;
+}
+
+.credit-card-button:hover {
+    background: #f0f0f0;
+}
+
+.credit-card-button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.credit-card-icon {
+    width: 20px;
+    height: 20px;
+}
+
+/* Checkout Overlay */
+.checkout-overlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 25%;
+    height: 100%;
+    background: rgba(51, 43, 34, 0.6);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    z-index: 1004;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.checkout-overlay.active {
+    transform: translateX(0);
+}
+
+.checkout-content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    margin-top: 40px;
+    box-sizing: border-box;
+}
+
+.checkout-header {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 0 24px 24px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.checkout-title {
+    color: white;
+    font-size: 24px;
+    font-family: 'Modeco Trial', sans-serif;
+    font-weight: 400;
+    margin: 0;
+    order: 1;
+}
+
+.checkout-back {
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 16px;
+    font-family: 'Modeco Trial', sans-serif;
+    font-weight: 400;
+    cursor: pointer;
+    padding: 0;
+    order: -1;
+}
+
+.checkout-form {
+    flex: 1;
+    overflow-y: auto;
+    padding: 24px;
+    overflow-x: hidden;
+    width: 100%;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.form-group label {
+    display: block;
+    color: white;
+    font-size: 14px;
+    font-family: 'Modeco Trial', sans-serif;
+    font-weight: 400;
+    margin-bottom: 8px;
+}
+
+.form-group input {
+    width: 100%;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    color: white;
+    font-size: 16px;
+    font-family: 'Modeco Trial', sans-serif;
+    font-weight: 400;
+    padding: 8px 0;
+    outline: none;
+    box-sizing: border-box;
+}
+
+.form-group input::placeholder {
+    color: white;
+    opacity: 0.7;
+}
+
+.form-row {
+    display: flex;
+    gap: 16px;
+    width: 100%;
+}
+
+.form-row .form-group {
+    flex: 0 0 calc(50% - 8px);
+    min-width: 0;
+}
+
+.checkout-total {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 24px 0;
+    padding: 16px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.checkout-total-label {
+    color: white;
+    font-size: 16px;
+    font-family: 'Modeco Trial', sans-serif;
+    font-weight: 400;
+}
+
+.checkout-total-amount {
+    color: white;
+    font-size: 18px;
+    font-family: 'Modeco Trial', sans-serif;
+    font-weight: 400;
+}
+
+.checkout-submit-btn {
+    width: 100%;
+    background: white;
+    color: #332B22;
+    border: none;
+    padding: 16px;
+    font-size: 16px;
+    font-family: 'Modeco Trial', sans-serif;
+    font-weight: 400;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background 0.3s ease;
+}
+
+.checkout-submit-btn:hover {
+    background: #f0f0f0;
+}
+
+/* Product Page Content */
+.product-page {
+    padding-top: 160px;
+    background: #F5F5F3;
+    min-height: 100vh;
+}
+
+.product-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 64px 0 64px;
+}
+
+.product-image-section {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    max-width: 800px;
+    margin: 0 auto;
+    padding-top: 40px;
+}
+
+.product-page-image {
+    max-width: 100%;
+    width: 100%;
+    height: auto;
+    border-radius: 0;
+    transform: scale(1.5);
+}
+
+.product-details-section {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    padding-top: 20px;
+    justify-content: flex-start;
+    margin-bottom: 0;
+}
+
+.back-to-home-btn {
+    background: transparent;
+    border: none;
+    color: #332B22;
+    font-size: 14px;
+    font-family: 'Modeco Trial', sans-serif;
+    font-weight: 400;
+    cursor: pointer;
+    padding: 0;
+    margin-bottom: 24px;
+    text-decoration: none;
+    align-self: flex-start;
+    text-transform: uppercase;
+    transition: color 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.back-to-home-btn:hover {
+    color: #666;
+}
+
+.back-arrow {
+    position: relative;
+    top: -1px;
+}
+
+.product-info {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    margin-bottom: 0;
+}
+
+.product-title-price {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.product-page-title {
+    color: #332B22;
+    font-size: 32px;
+    font-family: 'Modeco Trial', sans-serif;
+    font-weight: 400;
+    margin: 0;
+}
+
+.product-page-price {
+    color: #332B22;
+    font-size: 24px;
+    font-family: 'Modeco Trial', sans-serif;
+    font-weight: 200;
+    margin: 0;
+}
+
+.product-description {
+    color: #332B22;
+    font-size: 18px;
+    font-family: 'Modeco Trial', sans-serif;
+    font-weight: 200;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.product-add-to-cart-btn {
+    background: black;
+    color: white;
+    border: none;
+    padding: 16px 32px;
+    font-size: 16px;
+    font-family: 'Modeco Trial', sans-serif;
+    font-weight: 400;
+    cursor: pointer;
+    border-radius: 4px;
+    border-radius: 4px;
+    transition: background 0.3s ease;
+    align-self: flex-start;
+    margin-top: 16px;
+    margin-bottom: 0;
+    visibility: hidden;
+}
+
+.product-add-to-cart-btn:hover {
+    background: #333;
+}
+
+/* Other Models Section - Matching TOPSELLERS from home page */
+.other-models-section {
+    padding: 0 64px 64px 64px;
+    background: #F5F5F3;
+    margin-top: -96px;
+}
+
+.other-models-title {
+    text-align: left;
+    color: #332B22;
+    font-size: 32px;
+    font-family: 'Modeco Trial', sans-serif;
+    font-weight: 200;
+    margin-bottom: 28px;
+    margin-top: 0;
+    text-transform: uppercase;
+}
+
+.other-models-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+}
+
+.other-model-card {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    position: relative;
+    cursor: pointer;
+}
+
+.other-model-image-container {
+    height: 280px;
+    padding: 40px 0;
+    background: #F3F2EF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+}
+
+.other-model-image {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.other-model-card:hover .other-model-image {
+    transform: scale(1.05);
+}
+
+.other-model-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.other-model-title {
+    color: #332B22;
+    font-size: 18px;
+    font-family: 'Modeco Trial', sans-serif;
+    font-weight: 400;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+.other-model-price {
+    color: #332B22;
+    font-size: 18px;
+    font-family: 'Modeco Trial', sans-serif;
+    font-weight: 200;
+    margin: 0;
+}
+
+/* SEE ALL MODELS card */
+.see-all-models-card {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    position: relative;
+    cursor: pointer;
+    height: 100%;
+}
+
+.see-all-models-container {
+    height: 280px;
+    padding: 40px 0;
+    background: #F3F2EF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+}
+
+.see-all-models-link {
+    color: #332B22;
+    font-size: 18px;
+    font-family: 'Modeco Trial', sans-serif;
+    font-weight: 400;
+    text-decoration: none;
+    position: relative;
+    display: inline-block;
+    padding-bottom: 6px;
+    white-space: nowrap;
+}
+
+.see-all-models-link::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 2px;
+    background: #332B22;
+    width: 51px;
+    transition: width 0.3s ease;
+}
+
+.see-all-models-link:hover::after {
+    width: 100%;
+}
+
+/* Mobile responsive for navbar */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 0 16px;
+    }
+    
+    .nav-left, .nav-right {
+        display: none;
+    }
+    
+    .nav-link {
+        font-size: 14px;
+    }
+    
+    .bag-link-mobile {
+        display: block !important;
+    }
+    
+    .mobile-menu-toggle {
+        display: block;
+    }
+    
+    .logo {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    
+    .cart-overlay {
+        width: 100%;
+    }
+    
+    .checkout-overlay {
+        width: 100%;
+    }
+}
+
+/* Mobile responsive for product page */
+@media (max-width: 768px) {
+    .product-container {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        padding: 40px 16px;
+    }
+    
+    .product-details-section {
+        order: 1;
+        gap: 24px;
+    }
+    
+    .product-image-section {
+        order: 2;
+    }
+    
+    .product-page-title {
+        font-size: 28px;
+    }
+    
+    .product-page-price {
+        font-size: 24px;
+    }
+    
+    .product-description {
+        font-size: 16px;
+    }
+    
+    .product-add-to-cart-btn {
+        padding: 12px 24px;
+        font-size: 14px;
+    }
+    
+    .other-models-section {
+        padding: 0 16px 64px 16px;
+    }
+    
+    .other-models-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+    
+    .other-models-title {
+        font-size: 24px;
+        text-align: center;
+    }
+}
